@@ -2,7 +2,7 @@
 
 :root {
 	--bg-color: #fff;
-	--alternate-bg-color: #F7F7F8;
+	--alternate-bg-color: #f7f7f8;
 
 	--title-color: #0f0f28;
 	--body-color: #393845;
@@ -20,6 +20,8 @@
 	--title-font-size: clamp(2.25rem, 10.45vw + -0.36rem, 8rem);
 	--body-font-size: clamp(1.2rem, 1vw + 1rem, 3rem);
 
+	--current-color-rgb: var(--body-color-rgb);
+
 	.title {
 		font-family: var(--title-font);
 		font-size: var(--title-font-size);
@@ -31,27 +33,33 @@
 		font-weight: 400;
 		font-size: var(--body-font-size);
 		color: var(--body-color);
-		--current-color-rgb: var(--body-color-rgb);
 		b {
 			font-weight: 900;
 			--current-color-rgb: var(--accent-color-rgb);
 			color: var(--accent-color);
 		}
+	}
+}
 
-		//noinspection CssReplaceWithShorthandSafely
-		a {
-			background: linear-gradient(to right, rgba(var(--current-color-rgb), 0.3), rgba(var(--current-color-rgb), 0.3)), linear-gradient(to right, #69a3f0, #c765e9);
-			background-size: 100% 0.07em, 0 0.07em;
-			background-position: 100% 100%, 0 100%;
-			background-repeat: no-repeat;
-			text-decoration: none;
-			color: inherit;
-			transition: background-size 300ms;
-		}
-		a:hover,
-		a:focus {
-			background-size: 0 0.07em, 100% 0.07em;
-		}
+//noinspection CssReplaceWithShorthandSafely
+.body a,
+.link {
+	background: linear-gradient(
+			to right,
+			var(--link-underline-color, rgba(var(--current-color-rgb), 0.3)),
+			var(--link-underline-color, rgba(var(--current-color-rgb), 0.3))
+		),
+		linear-gradient(to right, #69a3f0, #c765e9);
+	background-size: 100% 0.07em, 0 0.07em;
+	background-position: 100% 100%, 0 100%;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	color: inherit;
+	transition: background-size 300ms;
+
+	&:hover,
+	&:focus {
+		background-size: 0 0.07em, 100% 0.07em;
 	}
 }
 
@@ -66,11 +74,15 @@ body {
 	overflow: auto;
 }
 
-html, body {
+html,
+body {
 	overflow-y: hidden;
+	touch-action: zoom;
 }
 
-html.scroll, html.scroll body {
+html.scroll,
+html.scroll body {
+	touch-action: pan-y;
 	overflow-y: auto;
 }
 
@@ -122,7 +134,7 @@ html.scroll, html.scroll body {
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-*{
-	-ms-overflow-style: none;  /* IE and Edge */
-	scrollbar-width: none;  /* Firefox */
+* {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }

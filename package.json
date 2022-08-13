@@ -33,6 +33,8 @@
 	"type": "module",
 	"dependencies": {
 		"fast-simplex-noise": "^4.0.0",
+		"mdsvex": "^0.10.6",
+		"rollup-plugin-closure-compiler": "^0.1.0",
 		"svelte-portal": "^2.2.0"
 	}
 }

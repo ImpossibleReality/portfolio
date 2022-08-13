@@ -2,25 +2,27 @@
 	import '$lib/normalize.css';
 	import '$lib/global.scss';
 	import { onMount } from 'svelte';
-	import { throttle } from '../lib/throttle.ts';
+	import { debounce } from '../lib/utils/debounce.ts';
+	import { enableScroll } from '../lib/utils/scroll.ts';
 
 	let loaded = false;
 	let loader;
-
-
 
 	onMount(() => {
 		// Fixes mobile vh
 		let vh = window.outerHeight / 100;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
-		window.addEventListener('resize', throttle(() => {
-			let vh = window.outerHeight / 100;
-			document.documentElement.style.setProperty('--vh', `${vh}px`);
-		}, 100));
+		window.addEventListener(
+			'resize',
+			debounce(() => {
+				let vh = window.outerHeight / 100;
+				document.documentElement.style.setProperty('--vh', `${vh}px`);
+			}, 100)
+		);
 
 		loaded = true;
 		loader.remove();
-		document.documentElement.classList.add('scroll');
+		enableScroll();
 	});
 </script>
 
@@ -28,7 +30,7 @@
 	style="display: flex;justify-content: center;align-items: center;position: fixed;top: 0;bottom: 0;right: 0;left: 0;background-color: #fff;z-index: 500;"
 	bind:this={loader}
 >
-	<span class="loader"></span>
+	<span class="loader" />
 </div>
 
 <slot />
