@@ -4,44 +4,44 @@ import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 
 const mdsvexConfig = {
-	extensions: ['.smd'],
+  extensions: ['.smd'],
 
-	smartypants: {
-		dashes: 'oldschool'
-	},
+  smartypants: {
+    dashes: 'oldschool',
+  },
 
-	remarkPlugins: [],
-	rehypePlugins: []
+  remarkPlugins: [],
+  rehypePlugins: [],
 };
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', ...mdsvexConfig.extensions],
+  extensions: ['.svelte', ...mdsvexConfig.extensions],
 
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: [
-		{
-			style: ({ content }) => {
-				return { code: content.replace(/(-?\d+)vh/g, 'calc(max(var(--vh,1vh), 3px) * $1)') };
-			}
-		},
-		mdsvex(mdsvexConfig),
-		preprocess()
-	],
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: [
+    {
+      style: ({ content }) => {
+        return { code: content.replace(/(-?\d+)vh/g, 'calc(max(var(--vh,1vh), 3px) * $1)') };
+      },
+    },
+    mdsvex(mdsvexConfig),
+    preprocess(),
+  ],
 
-	kit: {
-		adapter: adapter({
-			fallback: '404.html',
-		}),
-		alias: {
-			$img: 'src/images'
-		},
+  kit: {
+    adapter: adapter({
+      fallback: '404.html',
+    }),
+    alias: {
+      $img: 'src/images',
+    },
 
-		prerender: {
-			default: true
-		}
-	}
+    prerender: {
+      default: true,
+    },
+  },
 };
 
 export default config;

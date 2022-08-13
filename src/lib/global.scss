@@ -1,140 +1,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@400;900&display=swap');
 
 :root {
-	--bg-color: #fff;
-	--alternate-bg-color: #f7f7f8;
+  --bg-color: #fff;
+  --alternate-bg-color: #f7f7f8;
 
-	--title-color: #0f0f28;
-	--body-color: #393845;
+  --title-color: #0f0f28;
+  --body-color: #393845;
 
-	--body-color-rgb: 57, 56, 69;
+  --body-color-rgb: 57, 56, 69;
 
-	--accent-color: #7d40ff;
+  --accent-color: #7d40ff;
 
-	// Accent color r g and b values separated by comma
-	--accent-color-rgb: 125, 64, 255;
+  // Accent color r g and b values separated by comma
+  --accent-color-rgb: 125, 64, 255;
 
-	--title-font: 'Montserrat', sans-serif;
-	--body-font: 'Roboto', sans-serif;
+  --title-font: 'Montserrat', sans-serif;
+  --body-font: 'Roboto', sans-serif;
 
-	--title-font-size: clamp(2.25rem, 10.45vw + -0.36rem, 8rem);
-	--body-font-size: clamp(1.2rem, 1vw + 1rem, 3rem);
+  --title-font-size: clamp(2.25rem, 10.45vw + -0.36rem, 8rem);
+  --body-font-size: clamp(1.2rem, 1vw + 1rem, 3rem);
 
-	--current-color-rgb: var(--body-color-rgb);
+  --current-color-rgb: var(--body-color-rgb);
 
-	.title {
-		font-family: var(--title-font);
-		font-size: var(--title-font-size);
-		color: var(--title-color);
-	}
+  .title {
+    font-family: var(--title-font);
+    font-size: var(--title-font-size);
+    color: var(--title-color);
+  }
 
-	.body {
-		font-family: var(--body-font);
-		font-weight: 400;
-		font-size: var(--body-font-size);
-		color: var(--body-color);
-		b {
-			font-weight: 900;
-			--current-color-rgb: var(--accent-color-rgb);
-			color: var(--accent-color);
-		}
-	}
+  .body {
+    font-family: var(--body-font);
+    font-weight: 400;
+    font-size: var(--body-font-size);
+    color: var(--body-color);
+    b {
+      font-weight: 900;
+      --current-color-rgb: var(--accent-color-rgb);
+      color: var(--accent-color);
+    }
+  }
 }
 
 //noinspection CssReplaceWithShorthandSafely
 .body a,
 .link {
-	background: linear-gradient(
-			to right,
-			var(--link-underline-color, rgba(var(--current-color-rgb), 0.3)),
-			var(--link-underline-color, rgba(var(--current-color-rgb), 0.3))
-		),
-		linear-gradient(to right, #69a3f0, #c765e9);
-	background-size: 100% 0.07em, 0 0.07em;
-	background-position: 100% 100%, 0 100%;
-	background-repeat: no-repeat;
-	text-decoration: none;
-	color: inherit;
-	transition: background-size 300ms;
+  background: linear-gradient(
+      to right,
+      var(--link-underline-color, rgba(var(--current-color-rgb), 0.3)),
+      var(--link-underline-color, rgba(var(--current-color-rgb), 0.3))
+    ),
+    linear-gradient(to right, #69a3f0, #c765e9);
+  background-size: 100% 0.07em, 0 0.07em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  color: inherit;
+  transition: background-size 300ms;
 
-	&:hover,
-	&:focus {
-		background-size: 0 0.07em, 100% 0.07em;
-	}
+  &:hover,
+  &:focus {
+    background-size: 0 0.07em, 100% 0.07em;
+  }
 }
 
 #root {
-	position: relative;
-	height: 100%;
-	overflow: hidden;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-	background-color: var(--bg-color);
-	overflow: auto;
+  background-color: var(--bg-color);
+  overflow: auto;
 }
 
 html,
 body {
-	overflow-y: hidden;
-	touch-action: zoom;
+  overflow-y: hidden;
+  touch-action: zoom;
 }
 
 html.scroll,
 html.scroll body {
-	touch-action: pan-y;
-	overflow-y: auto;
+  touch-action: pan-y;
+  overflow-y: auto;
 }
 
 .center-horizontal {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .spacer {
-	flex-grow: 5;
+  flex-grow: 5;
 }
 
 .md {
-	display: none;
+  display: none;
 }
 
 @media (min-width: 768px) {
-	.md {
-		display: initial;
-	}
+  .md {
+    display: initial;
+  }
 }
 
 .split {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 
-	gap: 1.5rem;
+  gap: 1.5rem;
 
-	@media (min-width: 768px) {
-		flex-direction: row;
-		.left {
-			flex: 1;
-			height: 100%;
-		}
+  @media (min-width: 768px) {
+    flex-direction: row;
+    .left {
+      flex: 1;
+      height: 100%;
+    }
 
-		.right {
-			flex: 1;
-			height: 100%;
-		}
-	}
+    .right {
+      flex: 1;
+      height: 100%;
+    }
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 * {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

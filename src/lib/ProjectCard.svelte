@@ -14,7 +14,7 @@
   let colors = [
     ['#74ccfe', '#253af8'],
     ['#df8cfc', '#8a06ba'],
-    ['#fe9458', '#ed2b00']
+    ['#fe9458', '#ed2b00'],
   ];
 
   let showingModal = false;
@@ -30,14 +30,14 @@
         return;
       }
       showingModal = true;
-      disableScroll()
+      disableScroll();
     }
   }
 
   function exit(e) {
     e.preventDefault();
     if (showingModal) {
-      enableScroll()
+      enableScroll();
       showingModal = false;
     }
   }
@@ -51,7 +51,7 @@
         return `
 					transform: scale(${eased * -0.1 + 1.1});
 					opacity: ${t};`;
-      }
+      },
     };
   }
 
@@ -59,7 +59,7 @@
     if (isMobile()) {
       shouldHideContent = true;
     }
-  })
+  });
 
   if (typeof image === 'undefined') {
     const numCircles = Math.round(Math.random() * 2 + 3);
@@ -72,31 +72,31 @@
   }
 </script>
 
-<div class='card-container'>
-  <div class='card'>
+<div class="card-container">
+  <div class="card">
     <a
       href={link}
-      target='_blank'
+      target="_blank"
       class:active={typeof link !== 'undefined'}
       on:click={projectClick}
     >
-      <div class='inner' class:blur={image}>
+      <div class="inner" class:blur={image}>
         {#if image}
-          <img alt='{name} Thumbnail' class='card-image' srcset={image} loading="lazy"/>
+          <img alt="{name} Thumbnail" class="card-image" srcset={image} loading="lazy" />
         {:else}
-					<div class='title'>
-						{name}
-					</div>
-          <div class='img-placeholder'>
+          <div class="title">
+            {name}
+          </div>
+          <div class="img-placeholder">
             <div
-              class='placeholder-visual'
-              style='--circle-color:{circleColor};background-color:{backgroundColor}'
+              class="placeholder-visual"
+              style="--circle-color:{circleColor};background-color:{backgroundColor}"
             >
-              <div class='placeholder-circles'>
+              <div class="placeholder-circles">
                 {#each circles as circle}
                   <div
-                    class='placeholder-circle'
-                    style='--circle-size:{circle.size}%;--top:{circle.top}%;--left:{circle.left}%'
+                    class="placeholder-circle"
+                    style="--circle-size:{circle.size}%;--top:{circle.top}%;--left:{circle.left}%"
                   />
                 {/each}
               </div>
@@ -104,53 +104,53 @@
           </div>
         {/if}
       </div>
-      <div class='card-content' class:hidden={shouldHideContent}>
-        <h3 class='title card-title'>{name}</h3>
-        <p class='body card-description'>{description}</p>
+      <div class="card-content" class:hidden={shouldHideContent}>
+        <h3 class="title card-title">{name}</h3>
+        <p class="body card-description">{description}</p>
       </div>
     </a>
   </div>
 </div>
 
 {#if showingModal}
-  <div class='project-modal' use:portal={'body'} transition:scale={{ duration: 200 }} hidden>
-		<span class='buttons'>
-			{#if github}
-				<a href={github} target='_blank' class='button button-github'>
-					<svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='currentColor'
-            viewBox='0 0 24 24'
-            stroke='none'
+  <div class="project-modal" use:portal={'body'} transition:scale={{ duration: 200 }} hidden>
+    <span class="buttons">
+      {#if github}
+        <a href={github} target="_blank" class="button button-github">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            stroke="none"
           >
-						<path
-              d='M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48C19.137 20.107 22 16.373 22 11.969 22 6.463 17.522 2 12 2z'
+            <path
+              d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48C19.137 20.107 22 16.373 22 11.969 22 6.463 17.522 2 12 2z"
             />
-					</svg>
-				</a>
-			{/if}
-      <span class='spacer' />
-			<span class='button button-exit' on:click={exit}>
-				<svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
-          stroke-width='2'
+          </svg>
+        </a>
+      {/if}
+      <span class="spacer" />
+      <span class="button button-exit" on:click={exit}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
         >
-					<path stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12' />
-				</svg>
-			</span>
-		</span>
-    <div class='project-modal-content split'>
-      <div class='project-modal-text left'>
-        <h3 class='title'>{name}</h3>
-        <p class='body'>{description}</p>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </span>
+    </span>
+    <div class="project-modal-content split">
+      <div class="project-modal-text left">
+        <h3 class="title">{name}</h3>
+        <p class="body">{description}</p>
       </div>
       {#if image}
-        <div class='right'>
-          <div class='project-modal-image'>
-            <img alt='${name} Thumbnail' srcset={image} />
+        <div class="right">
+          <div class="project-modal-image">
+            <img alt="${name} Thumbnail" srcset={image} />
           </div>
         </div>
       {/if}
@@ -158,7 +158,7 @@
   </div>
 {/if}
 
-<style lang='scss'>
+<style lang="scss">
   .card-container {
     position: relative;
     width: min(100%, 35rem);
@@ -319,7 +319,7 @@
     transition: opacity 0.2s;
 
     // Fixes height not updating on ios
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
 
     .buttons {
       position: absolute;

@@ -1,5 +1,11 @@
 <script>
-  import Blob from "../lib/Blob.svelte";
+  import Blob from '../lib/Blob.svelte';
+  import { onMount } from 'svelte';
+  import { prefetch } from '$app/navigation';
+
+  onMount(() => {
+    prefetch('/');
+  });
 </script>
 
 <div class="error-container">
