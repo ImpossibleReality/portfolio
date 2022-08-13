@@ -10,12 +10,12 @@
 
 	onMount(() => {
 		// Fixes mobile vh
-		let vh = window.outerHeight / 100;
+		let vh = window.innerHeight / 100;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 		window.addEventListener(
 			'resize',
 			debounce(() => {
-				let vh = window.outerHeight / 100;
+				let vh = window.innerHeight / 100;
 				document.documentElement.style.setProperty('--vh', `${vh}px`);
 			}, 100)
 		);
