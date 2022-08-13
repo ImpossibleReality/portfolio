@@ -53,7 +53,7 @@
     {
       name: 'Trivia Bot',
       description:
-        'A closed-source Discord trivia bot that was in 20,000+ servers before we shut it down. It was built with Discord.py and OpenTDB. We also made an electron trivia game to accompany it.',
+        'A closed-source Discord trivia bot that was in 2,000+ servers before we shut it down. It was built with Discord.py and OpenTDB. We also made an electron trivia game to accompany it.',
       github: 'https://github.com/Trivia-Bot-Apps',
       image: trivia,
     },
