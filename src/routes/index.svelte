@@ -8,6 +8,8 @@
   import clarity from '../images/projects/clarity.png?card&srcset';
   import toxicityBot from '../images/projects/toxicity_bot.png?card&srcset';
   import trivia from '../images/projects/trivia.png?card&srcset';
+  import ataraxy from '../images/projects/ataraxy.png?card&srcset';
+  import ava from '../images/projects/ava.png?card&srcset';
 
   import Footer from '../lib/Footer.svelte';
 
@@ -32,6 +34,8 @@
         'A Rust library for the Serenity.rs framework that allows you to register Discord slash commands with ease using macros.',
       url: 'https://docs.rs/ataraxy/latest/ataraxy/',
       github: 'https://github.com/ImpossibleReality/ataraxy',
+      image: ataraxy,
+      dark: true
     },
     {
       name: 'Clarity',
@@ -41,14 +45,11 @@
       image: clarity,
     },
     {
-      name: 'Font Readability Survey',
-      description:
-        'An unshared survey made with Sveltekit and Material Design to test which fonts are easier to read and understand on the web.',
-    },
-    {
       name: 'Ava Bot',
       description:
         'An unfinished Discord bot which allowed users to create custom commands using a Apple Shortcuts-like interface.',
+      image: ava,
+      dark: true
     },
     {
       name: 'Trivia Bot',
@@ -56,6 +57,7 @@
         'A closed-source Discord trivia bot that was in 2,000+ servers before we shut it down. It was built with Discord.py and OpenTDB. We also made an electron trivia game to accompany it.',
       github: 'https://github.com/Trivia-Bot-Apps',
       image: trivia,
+      dark: true
     },
   ];
 
@@ -196,6 +198,7 @@
         image={project.image}
         link={project.url}
         github={project.github}
+        dark={project.dark}
       />
     {/each}
   </div>
@@ -277,16 +280,20 @@
     width: 100%;
   }
   .projects-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: -1rem;
-    padding-left: 10vw;
-    padding-right: 10vw;
   }
   .projects-container {
     display: grid;
     place-items: center;
     gap: 1rem;
     margin-top: 3rem;
-    grid: auto-flow / repeat(auto-fill, minmax(25rem, 1fr));
+    width: 80%;
+    min-width: 15rem;
+    grid: auto-flow / repeat(auto-fill, minmax(min(25rem, 100%), 1fr));
   }
   /*
 	@media screen and (min-width: 1000px) {

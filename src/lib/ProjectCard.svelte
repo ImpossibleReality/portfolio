@@ -10,6 +10,7 @@
   export let image;
   export let link;
   export let github;
+  export let dark = false;
 
   let colors = [
     ['#74ccfe', '#253af8'],
@@ -73,11 +74,11 @@
 </script>
 
 <div class="card-container">
-  <div class="card">
+  <div class="card" class:hover-effect={!shouldHideContent}>
     <a
-      href={link}
+      href={link || github}
       target="_blank"
-      class:active={typeof link !== 'undefined'}
+      class:active={typeof link !== 'undefined' || typeof github !== 'undefined'}
       on:click={projectClick}
     >
       <div class="inner" class:blur={image}>
@@ -104,9 +105,11 @@
           </div>
         {/if}
       </div>
-      <div class="card-content" class:hidden={shouldHideContent}>
-        <h3 class="title card-title">{name}</h3>
-        <p class="body card-description">{description}</p>
+      <div class="hover-container" class:hidden={shouldHideContent} class:dark={dark}>
+        <div class="hover-content">
+          <h3 class="title card-title">{name}</h3>
+          <p class="body card-description">{description}</p>
+        </div>
       </div>
     </a>
   </div>
@@ -115,8 +118,21 @@
 {#if showingModal}
   <div class="project-modal" use:portal={'body'} transition:scale={{ duration: 200 }} hidden>
     <span class="buttons">
-      {#if github}
-        <a href={github} target="_blank" class="button button-github">
+      {#if link}
+        <a href={link} target="_blank" class="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            stroke="none"
+          >
+            <path
+              d="M12 2C6.477 2 2 6.463 2 11.97c0 4.404 2.865 8.14 6.839 9.458.5.092.682-.216.682-.48 0-.236-.008-.864-.013-1.695-2.782.602-3.369-1.337-3.369-1.337-.454-1.151-1.11-1.458-1.11-1.458-.908-.618.069-.606.069-.606 1.003.07 1.531 1.027 1.531 1.027.892 1.524 2.341 1.084 2.91.828.092-.643.35-1.083.636-1.332-2.22-.251-4.555-1.107-4.555-4.927 0-1.088.39-1.979 1.029-2.675-.103-.252-.446-1.266.098-2.638 0 0 .84-.268 2.75 1.022A9.606 9.606 0 0112 6.82c.85.004 1.705.114 2.504.336 1.909-1.29 2.747-1.022 2.747-1.022.546 1.372.202 2.386.1 2.638.64.696 1.028 1.587 1.028 2.675 0 3.83-2.339 4.673-4.566 4.92.359.307.678.915.678 1.846 0 1.332-.012 2.407-.012 2.734 0 .267.18.577.688.48C19.137 20.107 22 16.373 22 11.969 22 6.463 17.522 2 12 2z"
+            />
+          </svg>
+        </a>
+      {:else if github}
+        <a href={github} target="_blank" class="button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -261,21 +277,21 @@
     transform: scale(1.02);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 3px 16px 0px;
 
-    @media screen and (min-width: 1025px) {
-      .inner.blur {
-        filter: blur(10px);
-        transform: scale(1.1);
-      }
+    &.hover-effect .inner.blur {
+      filter: blur(30px);
+      transform: scale(1.1);
     }
   }
 
-  .card:hover .card-content {
+  .card:hover .hover-container {
     opacity: 1;
   }
 
-  .card-content {
+  .hover-container {
     position: absolute;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
     bottom: 0;
@@ -284,7 +300,15 @@
     opacity: 0;
     transition: opacity 0.2s;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hover-container.dark {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  .hover-content {
+    max-width: 20rem;
   }
 
   .hidden {
@@ -292,16 +316,14 @@
   }
 
   .card-title {
-    color: white;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
     font-size: 1.7rem;
   }
 
   .card-description {
-    color: white;
+    color: var(--body-contrast-color);
     font-size: 1.2rem;
-    text-overflow: ellipsis;
   }
 
   :global(.project-modal) {
