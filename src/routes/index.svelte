@@ -166,9 +166,7 @@
   </div>
   <div class="right">
     <p class="body">
-      Hey, I’m <b>Johan</b> (aka. Impossible Reality). I am a high-schooler at
-      <b><a href="https://www.lakesideschool.org/" target="_blank">Lakeside School</a></b>
-      in Seattle, a full-stack web developer, and a
+      Hey, I’m <b>Johan</b> (aka. Impossible Reality). I am a high-schooler in Seattle, a <b>full-stack web developer</b>, and a
       <b><a href="https://svelte.dev/" target="_blank">Svelte</a></b>
       and <b><a href="https://vuejs.org/" target="_blank">Vue</a></b> fanatic. I am a faithful
       <b><a href="https://www.rust-lang.org/" target="_blank">Rustacean</a></b>, and I enjoy making
