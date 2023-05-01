@@ -35,7 +35,7 @@
       url: 'https://docs.rs/ataraxy/latest/ataraxy/',
       github: 'https://github.com/ImpossibleReality/ataraxy',
       image: ataraxy,
-      dark: true
+      dark: true,
     },
     {
       name: 'Clarity',
@@ -49,7 +49,7 @@
       description:
         'An unfinished Discord bot which allowed users to create custom commands using a Apple Shortcuts-like interface.',
       image: ava,
-      dark: true
+      dark: true,
     },
     {
       name: 'Trivia Bot',
@@ -57,7 +57,7 @@
         'A closed-source Discord trivia bot that was in 2,000+ servers before we shut it down. It was built with Discord.py and OpenTDB. We also made an electron trivia game to accompany it.',
       github: 'https://github.com/Trivia-Bot-Apps',
       image: trivia,
-      dark: true
+      dark: true,
     },
   ];
 
@@ -166,7 +166,8 @@
   </div>
   <div class="right">
     <p class="body">
-      Hey, I’m <b>Johan</b> (aka. Impossible Reality). I am a high-schooler in Seattle, a <b>full-stack web developer</b>, and a
+      Hey, I’m <b>Johan</b> (aka. Impossible Reality). I am a high-schooler in Seattle, a
+      <b>full-stack web developer</b>, and a
       <b><a href="https://svelte.dev/" target="_blank">Svelte</a></b>
       and <b><a href="https://vuejs.org/" target="_blank">Vue</a></b> fanatic. I am a faithful
       <b><a href="https://www.rust-lang.org/" target="_blank">Rustacean</a></b>, and I enjoy making
@@ -230,7 +231,7 @@
   .hero-text-svg-border {
     position: absolute;
     height: 100%;
-    z-index: 100;
+    z-index: 80;
   }
 
   .hero-bg {
@@ -253,7 +254,7 @@
     top: calc(100vh - 80px);
     width: calc(40vw + 160px);
     left: 70vw;
-    z-index: 75;
+    z-index: 85;
     transform: translate(-50%, -50%);
   }
 

@@ -105,7 +105,7 @@
           </div>
         {/if}
       </div>
-      <div class="hover-container" class:hidden={shouldHideContent} class:dark={dark}>
+      <div class="hover-container" class:hidden={shouldHideContent} class:dark>
         <div class="hover-content">
           <h3 class="title card-title">{name}</h3>
           <p class="body card-description">{description}</p>

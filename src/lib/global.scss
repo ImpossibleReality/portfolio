@@ -47,10 +47,14 @@
 .link {
   background: linear-gradient(
       to right,
-      var(--link-underline-color, rgba(var(--current-color-rgb), 0.3)),
-      var(--link-underline-color, rgba(var(--current-color-rgb), 0.3))
+      rgba(var(--link-underline-color, var(--accent-color-rgb)), 0.3),
+      rgba(var(--link-underline-color, var(--accent-color-rgb)), 0.3)
     ),
-    linear-gradient(to right, #69a3f0, #c765e9);
+    linear-gradient(
+      to right,
+      rgba(var(--link-underline-color, var(--accent-color-rgb)), 1),
+      rgba(var(--link-underline-color, var(--accent-color-rgb)), 1)
+    );
   background-size: 100% 0.07em, 0 0.07em;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;

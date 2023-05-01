@@ -57,11 +57,30 @@
   .link {
     --link-underline-color: rgba(0, 0, 0, 0);
     display: flex;
+    position: relative;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     font-size: var(--body-font-size);
     color: var(--title-color);
     text-decoration: none;
+  }
+
+  .link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -0.1rem;
+    background: var(--accent-color);
+    transition: opacity 0.1s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(5px) scaleY(0.9);
+  }
+
+  .link:hover::after {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .item {
