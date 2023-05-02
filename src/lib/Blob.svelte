@@ -2,8 +2,6 @@
   import { spline } from './utils/spline.ts';
   import { onMount } from 'svelte';
   import { makeNoise2D } from 'fast-simplex-noise';
-  import { tweened } from "svelte/motion";
-  import { browser } from "$app/env";
 
   export let topColor;
   export let id;
@@ -15,13 +13,9 @@
 
   const simplex = makeNoise2D();
 
-  export let speed = 0.7;
+  export let speed = 1;
 
-  const targetSpeed = tweened(speed * 4, {
-    duration: 1000,
-  });
-
-  $: noiseStep = 0.001 * $targetSpeed;
+  let noiseStep = 0.001 * speed;
 
   export let numPoints = 6;
 
@@ -64,18 +58,14 @@
   }
 
   function speedUp() {
-    $targetSpeed = 4
+    noiseStep = 0.003 * speed;
   }
 
   function slowDown() {
-    $targetSpeed = 1
+    noiseStep = 0.001 * speed;
   }
 
   const points = createPoints();
-
-  if (browser) {
-    $targetSpeed = speed;
-  }
 
   onMount(() => {
     (function animate() {
@@ -107,7 +97,7 @@
   });
 </script>
 
-<svg class="blob" viewBox="0 0 200 200" on:mousedown={speedUp} on:mouseup={slowDown} on:mouseleave={slowDown}>
+<svg viewBox="0 0 200 200" on:mousedown={speedUp} on:mouseup={slowDown} on:mouseleave={slowDown}>
   <defs>
     <!-- Our gradient fill #gradient -->
     <linearGradient {id} gradientTransform="rotate(90)">
@@ -118,15 +108,3 @@
   </defs>
   <path d="" fill={`url('#${id}')`} bind:this={path} />
 </svg>
-
-<style>
-  .blob {
-    transition: transform 0.6s ease-in-out;
-    transform: scale(1);
-  }
-
-  .blob:active {
-    transform: scale(0.9);
-  }
-
-</style>
