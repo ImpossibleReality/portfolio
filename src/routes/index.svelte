@@ -244,16 +244,16 @@
   .blue-blob {
     position: absolute;
     top: calc(50vh - 80px);
-    width: calc(40vw + 200px);
-    left: calc(16vw - 240px);
+    width: calc(40vw + 15rem);
+    left: max(-8rem, calc(14vw - 240px));
     z-index: 75;
     transform: translate(0, -50%);
   }
 
   .orange-blob {
     position: absolute;
-    top: calc(39vh + 1px);
-    width: calc(40vw + 160px);
+    top: calc(39vh + 4.5rem - 5vw);
+    width: calc(40vw + 16rem);
     left: 70vw;
     z-index: 85;
     transform: translate(-50%, 0);
