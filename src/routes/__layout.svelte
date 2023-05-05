@@ -4,6 +4,7 @@
   import { onMount } from 'svelte';
   import { debounce } from '../lib/utils/debounce.ts';
   import { enableScroll } from '../lib/utils/scroll.ts';
+  import twemoji from "twemoji";
 
   let loaded = false;
   let loader;
@@ -23,6 +24,8 @@
     loaded = true;
     loader.remove();
     enableScroll();
+
+    twemoji.parse(document.body);
   });
 </script>
 
@@ -33,9 +36,13 @@
   <span class="loader" />
 </div>
 
-<slot />
+  <slot />
 
 <style>
+  :global(.emoji) {
+    height: 0.9em;
+  }
+
   .loader {
     background-color: #000;
     width: 3rem;

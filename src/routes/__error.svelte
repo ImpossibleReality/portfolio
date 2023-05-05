@@ -33,7 +33,7 @@
   </div>
   <div class="error-text">
     <h1 class="title">404</h1>
-    <a href="/" class="body link">Go back home<span class="md">&nbsp;to safety</span>.</a>
+    <a href="/" class="body link">Go back home to safety.</a>
   </div>
 </div>
 
