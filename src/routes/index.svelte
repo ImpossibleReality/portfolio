@@ -73,7 +73,7 @@
           r.top <= (window.innerHeight || document.getElementById('root').clientHeight) &&
           r.left <= (window.innerWidth || document.getElementById('root').clientWidth);
       }
-    }, 3000)
+    }, 300)
   );
 </script>
 
