@@ -35,6 +35,5 @@
     "mdsvex": "^0.10.6"
   },
   "type": "module",
-  "dependencies": {
-  }
+  "dependencies": {}
 }

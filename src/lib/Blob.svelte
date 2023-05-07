@@ -2,8 +2,8 @@
   import { spline } from './utils/spline.ts';
   import { onMount } from 'svelte';
   import { makeNoise2D } from 'fast-simplex-noise';
-  import { tweened } from "svelte/motion";
-  import { browser } from "$app/environment";
+  import { tweened } from 'svelte/motion';
+  import { browser } from '$app/environment';
 
   export let topColor;
   export let id;
@@ -68,11 +68,11 @@
   }
 
   function speedUp() {
-    $targetSpeed = 4
+    $targetSpeed = 4;
   }
 
   function slowDown() {
-    $targetSpeed = 1
+    $targetSpeed = 1;
   }
 
   const points = createPoints();
@@ -112,7 +112,13 @@
   });
 </script>
 
-<svg class="blob" viewBox="0 0 200 200" on:mousedown={speedUp} on:mouseup={slowDown} on:mouseleave={slowDown}>
+<svg
+  class="blob"
+  viewBox="0 0 200 200"
+  on:mousedown={speedUp}
+  on:mouseup={slowDown}
+  on:mouseleave={slowDown}
+>
   <defs>
     <!-- Our gradient fill #gradient -->
     <linearGradient {id} gradientTransform="rotate(90)">
@@ -138,5 +144,4 @@
   .blob:active {
     transform: scale(0.9);
   }
-
 </style>

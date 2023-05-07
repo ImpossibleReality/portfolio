@@ -187,21 +187,22 @@
 <span id="about" />
 <div class="about-section">
   <div class="about-section-inner split">
-  <div class="left">
-    <span class="title">About<span class="md"><br />Me</span></span>
-  </div>
-  <div class="right">
-    <p class="body">
-      Hey, I’m <b>Johan</b> (aka. Impossible Reality) 👋. I am a student in Seattle, a
-      <b>full-stack web developer</b>, and a
-      <b><a href="https://svelte.dev/" target="_blank">Svelte</a></b> lover. I am a faithful
-      <b><a href="https://www.rust-lang.org/" target="_blank">Rustacean</a></b>, and I enjoy making
-      <b>Discord bots</b>
-      using
-      <b><a href="https://twilight.rs/" target="_blank">Twilight.rs</a></b>. In my free time I enjoy
-      taking my dog for <b>walks</b>, and playing <b>video games</b>.
-    </p>
-  </div>
+    <div class="left">
+      <span class="title">About<span class="md"><br />Me</span></span>
+    </div>
+    <div class="right">
+      <p class="body">
+        Hey, I’m <b>Johan</b> (aka. Impossible Reality) 👋. I am a student in Seattle, a
+        <b>full-stack web developer</b>, and a
+        <b><a href="https://svelte.dev/" target="_blank">Svelte</a></b> lover. I am a faithful
+        <b><a href="https://www.rust-lang.org/" target="_blank">Rustacean</a></b>, and I enjoy
+        making
+        <b>Discord bots</b>
+        using
+        <b><a href="https://twilight.rs/" target="_blank">Twilight.rs</a></b>. In my free time I
+        enjoy taking my dog for <b>walks</b>, and playing <b>video games</b>.
+      </p>
+    </div>
   </div>
 </div>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

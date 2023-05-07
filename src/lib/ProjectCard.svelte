@@ -275,7 +275,7 @@
 
   .card:hover {
     transform: scale(1.02);
-    box-shadow: rgba(0,0,0, 0.2) 0px 3px 16px 0px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 16px 0px;
 
     &.hover-effect .inner.blur {
       filter: blur(30px);

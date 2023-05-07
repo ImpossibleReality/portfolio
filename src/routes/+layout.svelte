@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
   import { debounce } from '../lib/utils/debounce.ts';
   import { enableScroll } from '../lib/utils/scroll.ts';
-  import twemoji from "twemoji";
+  import twemoji from 'twemoji';
 
   let loaded = false;
   let loader;
@@ -48,7 +48,7 @@
   </style>
 </svelte:head>
 
-  <slot />
+<slot />
 
 <style>
   :global(.emoji) {
