@@ -51,7 +51,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: #eee;
+    background-color: var(--alternate-bg-color);
     .orange-blob {
       width: min(100vw, 60rem);
       left: 0;
