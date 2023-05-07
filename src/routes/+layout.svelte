@@ -36,18 +36,6 @@
   <span class="loader" />
 </div>
 
-<svelte:head>
-  <style>
-    :root {
-      --bg-color: #fff;
-    }
-
-    :root.dark {
-      --bg-color: #191933;
-    }
-  </style>
-</svelte:head>
-
 <slot />
 
 <style>
