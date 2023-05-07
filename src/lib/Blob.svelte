@@ -2,8 +2,8 @@
   import { spline } from './utils/spline.ts';
   import { onMount } from 'svelte';
   import { makeNoise2D } from 'fast-simplex-noise';
-  import { tweened } from "svelte/motion";
-  import { browser } from "$app/env";
+  import { tweened } from 'svelte/motion';
+  import { browser } from '$app/environment';
 
   export let topColor;
   export let id;
@@ -11,7 +11,11 @@
   export let animating = true;
   export let shape = [1, 1, 1, 1, 1, 1];
 
+  export let clipId = null;
+
   let path;
+
+  let clipPath;
 
   const simplex = makeNoise2D();
 
@@ -64,11 +68,11 @@
   }
 
   function speedUp() {
-    $targetSpeed = 4
+    $targetSpeed = 4;
   }
 
   function slowDown() {
-    $targetSpeed = 1
+    $targetSpeed = 1;
   }
 
   const points = createPoints();
@@ -100,6 +104,7 @@
           point.noiseOffsetY += noiseStep;
         }
         if (path) path.setAttribute('d', spline(points, 1, true));
+        if (clipPath) clipPath.setAttribute('d', spline(points, 1, true));
       }
 
       requestAnimationFrame(animate);
@@ -107,7 +112,13 @@
   });
 </script>
 
-<svg class="blob" viewBox="0 0 200 200" on:mousedown={speedUp} on:mouseup={slowDown} on:mouseleave={slowDown}>
+<svg
+  class="blob"
+  viewBox="0 0 200 200"
+  on:mousedown={speedUp}
+  on:mouseup={slowDown}
+  on:mouseleave={slowDown}
+>
   <defs>
     <!-- Our gradient fill #gradient -->
     <linearGradient {id} gradientTransform="rotate(90)">
@@ -116,6 +127,11 @@
       <stop id="gradientStop2 " offset="100%" stop-color={bottomColor} />
     </linearGradient>
   </defs>
+  {#if clipId}
+    <clipPath id={clipId}>
+      <path d="" fill={`url('#${id}')`} bind:this={clipPath} />
+    </clipPath>
+  {/if}
   <path d="" fill={`url('#${id}')`} bind:this={path} />
 </svg>
 
@@ -128,5 +144,4 @@
   .blob:active {
     transform: scale(0.9);
   }
-
 </style>

@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
   import { debounce } from '../lib/utils/debounce.ts';
   import { enableScroll } from '../lib/utils/scroll.ts';
-  import twemoji from "twemoji";
+  import twemoji from 'twemoji';
 
   let loaded = false;
   let loader;
@@ -30,13 +30,25 @@
 </script>
 
 <div
-  style="display: flex;justify-content: center;align-items: center;position: fixed;top: 0;bottom: 0;right: 0;left: 0;background-color: #fff;z-index: 500;"
+  style="display: flex;justify-content: center;align-items: center;position: fixed;top: 0;bottom: 0;right: 0;left: 0;background-color: var(--bg-color);z-index: 500;"
   bind:this={loader}
 >
   <span class="loader" />
 </div>
 
-  <slot />
+<svelte:head>
+  <style>
+    :root {
+      --bg-color: #fff;
+    }
+
+    :root.dark {
+      --bg-color: #191933;
+    }
+  </style>
+</svelte:head>
+
+<slot />
 
 <style>
   :global(.emoji) {

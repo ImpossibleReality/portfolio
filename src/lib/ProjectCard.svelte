@@ -190,7 +190,7 @@
     overflow: hidden;
     background-color: var(--bg-color);
     border-radius: 2rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
     transition: box-shadow 0.2s, transform 0.2s;
   }
 
@@ -275,7 +275,7 @@
 
   .card:hover {
     transform: scale(1.02);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 3px 16px 0px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 16px 0px;
 
     &.hover-effect .inner.blur {
       filter: blur(30px);
@@ -300,11 +300,7 @@
     opacity: 0;
     transition: opacity 0.2s;
     z-index: 2;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-
-  .hover-container.dark {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(var(--bg-color-rgb), 0.9);
   }
 
   .hover-content {
