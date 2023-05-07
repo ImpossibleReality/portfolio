@@ -1,6 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
-
 import { mdsvex } from 'mdsvex';
 
 const mdsvexConfig = {
@@ -36,10 +35,6 @@ const config = {
     }),
     alias: {
       $img: 'src/images',
-    },
-
-    prerender: {
-      default: true,
     },
   },
 };

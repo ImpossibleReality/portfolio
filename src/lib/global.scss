@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@400;900&display=swap');
 
 :root {
-  --bg-color: #fff;
-  --alternate-bg-color: #f7f7f8;
+  --bg-color-rgb: 255, 255, 255;
+  --alternate-bg-color-rgb: 247, 247, 250;
+
+  --bg-color: rgb(var(--bg-color-rgb));
+  --alternate-bg-color: rgb(var(--alternate-bg-color-rgb));
 
   --title-color: #0f0f28;
   --body-contrast-color: #191933;
@@ -42,13 +45,32 @@
   }
 }
 
+:root.dark {
+  --bg-color-rgb: 25, 25, 51;
+  --alternate-bg-color-rgb: 15, 15, 40;
+
+  --bg-color: rgb(var(--bg-color-rgb));
+  --alternate-bg-color: rgb(var(--alternate-bg-color-rgb));
+
+  --title-color: #efeff4;
+  --body-contrast-color: #efeff4;
+
+  --body-color-rgb: 227, 227, 240;
+  --body-color: rgb(var(--body-color-rgb));
+
+  --accent-color: #be5eff;
+
+  // Accent color r g and b values separated by comma
+  --accent-color-rgb: 190, 94, 255;
+}
+
 //noinspection CssReplaceWithShorthandSafely
 .body a,
 .link {
   background: linear-gradient(
       to right,
-      rgba(var(--link-underline-color, var(--accent-color-rgb)), 0.3),
-      rgba(var(--link-underline-color, var(--accent-color-rgb)), 0.3)
+      rgba(var(--link-underline-color, var(--accent-color-rgb)), 0.4),
+      rgba(var(--link-underline-color, var(--accent-color-rgb)), 0.4)
     ),
     linear-gradient(
       to right,

@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import { makeNoise2D } from 'fast-simplex-noise';
   import { tweened } from "svelte/motion";
-  import { browser } from "$app/env";
+  import { browser } from "$app/environment";
 
   export let topColor;
   export let id;
@@ -11,7 +11,11 @@
   export let animating = true;
   export let shape = [1, 1, 1, 1, 1, 1];
 
+  export let clipId = null;
+
   let path;
+
+  let clipPath;
 
   const simplex = makeNoise2D();
 
@@ -100,6 +104,7 @@
           point.noiseOffsetY += noiseStep;
         }
         if (path) path.setAttribute('d', spline(points, 1, true));
+        if (clipPath) clipPath.setAttribute('d', spline(points, 1, true));
       }
 
       requestAnimationFrame(animate);
@@ -116,6 +121,11 @@
       <stop id="gradientStop2 " offset="100%" stop-color={bottomColor} />
     </linearGradient>
   </defs>
+  {#if clipId}
+    <clipPath id={clipId}>
+      <path d="" fill={`url('#${id}')`} bind:this={clipPath} />
+    </clipPath>
+  {/if}
   <path d="" fill={`url('#${id}')`} bind:this={path} />
 </svg>
 

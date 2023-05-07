@@ -1,10 +1,11 @@
 <script>
   import Blob from '../lib/Blob.svelte';
   import { onMount } from 'svelte';
-  import { prefetch } from '$app/navigation';
+  import { page } from '$app/stores';
+  import { preloadData } from '$app/navigation';
 
   onMount(() => {
-    prefetch('/');
+    preloadData('/');
   });
 </script>
 
@@ -32,7 +33,7 @@
     </div>
   </div>
   <div class="error-text">
-    <h1 class="title">404</h1>
+    <h1 class="title">{$page.status}</h1>
     <a href="/" class="body link">Go back home to safety.</a>
   </div>
 </div>

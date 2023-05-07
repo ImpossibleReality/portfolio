@@ -5,6 +5,22 @@
     <link rel="icon" href="%sveltekit.assets%/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     %sveltekit.head%
+    <script>
+      if (localStorage.getItem('theme')) {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      } else {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      }
+    </script>
+    <style>
+      :root {
+
+      }
+    </style>
   </head>
   <body>
     <div id="root">%sveltekit.body%</div>

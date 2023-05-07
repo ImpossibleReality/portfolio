@@ -65,6 +65,10 @@
     text-decoration: none;
   }
 
+  :global(.dark) .link {
+    text-shadow: 0 0 0.3rem rgba(var(--bg-color-rgb), 0.4);
+  }
+
   .link::after {
     content: '';
     display: block;
